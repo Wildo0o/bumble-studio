@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.db
+*.db-shm
+*.db-wal
+.DS_Store
+
+# 审计与 E2E 的临时数据目录
+.audit-*/
+.e2e/
+.e2e-*/
+*.log

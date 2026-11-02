@@ -1,0 +1,63 @@
+# 源码文件 SHA-256
+
+对 src/ 下每个 .ts 文件计算。审计方可用同样命令复核：
+
+```bash
+cd src && find . -name '*.ts' -type f | sort | xargs sha256sum
+```
+
+```
+077ca91bf73a9efbde525ac9c5fce1e27bc02f214984237ebfa79232a7c56f72 *./core/__tests__/atomicity.test.ts
+ab1bf731fed0ceb78975eea09c4aa741beb41b30be5c34d4b493b809905bf6e9 *./core/__tests__/attempt-atomicity.test.ts
+220492a1d897d5e694f3956bc5dfa245483c7a2c63e6495f46732e5347dd41f8 *./core/__tests__/case-a.test.ts
+324d430b95b84e8373f5081168e40ca1180535bfb84d2991ac5e91ba6bf5da2f *./core/__tests__/case-b.test.ts
+61bb3e1b256a2b972f875e87f5987ff159ccf2bb26729af594610d56cd563c81 *./core/__tests__/case-c.test.ts
+831ccb65d60639e427ca7238ef4f0bbcbd1ea1f1d0548b680424175fb7369a3d *./core/__tests__/case-d-lifecycle.test.ts
+16ebb75ab8be37cbe53d0a05f4bc89e3fa9de057aeae4a2ca17b001fb28e003e *./core/__tests__/case-e-artifact.test.ts
+8d81a425ba8fa5707fb5d1a4aaf20a0f9fbba71503f3c5d95608f281bcbf303f *./core/__tests__/case-f-acceptance.test.ts
+87ca902290834dd9d54ea667afa9675d0c1dbad44adb10c6b4602b14c2b13086 *./core/__tests__/case-g-audit.test.ts
+af9fb3055414fec9d1f37fbc2223d31aeb5114bd8d4e4b054779dec5a3a1db82 *./core/__tests__/case-h-reviewloop.test.ts
+96df8a2f5320f99046a431b591200c197547f6b4a1b7c116a2be6ad55d667317 *./core/__tests__/grant-consumption.test.ts
+9c54bb604310ef853cceacdd73c9b0b2286950ae5f12477c88908681d1196415 *./core/__tests__/helpers.ts
+f7cdeb49b041dff8fefcdcbb60a46a33eef40e8c651ea5bf15d63d927a152af8 *./core/__tests__/intent-crash.test.ts
+4c453c88fad80b095b079a73bd476181d8352d11a9440d5402eed924ee169c29 *./core/__tests__/intent-crashpoints.test.ts
+e1b92c8b844d9b748278905533ba61d09a72e4c4e4337725e6e1f27dd6c3383a *./core/__tests__/intent-order.test.ts
+c0aef90fc9111045ee4707809d36561a3e5de73ce396f2caf448075cb879835a *./core/__tests__/intent-scenarios.test.ts
+f7452220b17b598032111aec983a2ef1f964beb8cb02626e8aebe017c8088603 *./core/__tests__/intent-store.test.ts
+b3393830985c9dfccc46e9339a63ae6daa22ccf56dab66d47a73d71613a34246 *./core/__tests__/invariants.test.ts
+5b7136a29b21e7b8512e649baa123ff09109e76d8e631d67cda2bcd85fbe3337 *./core/__tests__/model-identity.test.ts
+dd81beb47a694d904d985b4d94177a1eb142066b0150eecd20f149326d227637 *./core/__tests__/paths.test.ts
+4151a01fd3da9dd2e06ca6e1a7e4f80acf1dbe41972f0e8a66054425477866ad *./core/__tests__/reconcile-binding.test.ts
+3b51426126a559608e11ba5564ab0d00d5d96afc6065d28be4ca09eea1e74dbc *./core/__tests__/reconcile-evidence.test.ts
+65ff43aee7f0c72eb09efbaadaff2de0f6c6f68316f5e095cece008f2467c68c *./core/__tests__/reconcile-semantics.test.ts
+8b86295d2b662aed7bdb5d9471ed61b1330a6d043bf4024cf29d93bb997eebda *./core/__tests__/side-effect.test.ts
+2f6c694d27fbad43eebf7b9a6aed35b66dae3d38525b2407ca52fb1526a4bab9 *./core/__tests__/snapshot.test.ts
+e2dfa54c99ee8c39e0ddd6f8b1ec55fd669afe4f53cd5575f5a31f9e51603154 *./core/__tests__/state-gate.test.ts
+04b6aca513b819b8cbcd4340521152ab5372f74f53df7eff36a5e28b0dd4f84e *./core/__tests__/tool-intent.test.ts
+864140fa5d955e445a1272f16aaf1ec66d6daf108cdb3a4f9fea941abb8da651 *./core/__tests__/toolcall-uniqueness.test.ts
+c78e9c8c536a004e3e4ac70122e39aac70669ae1f4d04cff9a953286af61eec8 *./core/__tests__/tx-boundary.test.ts
+6d570207010848d248fc0aea63865a1219661666948347bac5f74e1f1674b6b2 *./core/acceptance.ts
+885480c1c81f1c8dc4590affbbde78ea34ab732b59fc4432725abcfa0cf37787 *./core/audit.ts
+e1b9418e7897af2fde17a6798e76acc899caca6f991c74977f0548478806115f *./core/executor.ts
+947471c98eb142e1cb0bf53d54fbf15d1f3dc5334d8572f7cd259df7b19c0b5c *./core/paths.ts
+4937b98854bd9ff1b7a409b2d65c11c5112685124440d74578ec2c2e54d7c32a *./core/prompt.ts
+3e984276b42d734e757dca8483614cb9e63877f9a184e6dbabdf0c04837aadd5 *./core/review-loop.ts
+0e28f158fff1961b60e2f844694c8dc1fdbc479a150b9436380302aa3c79ddf8 *./core/snapshot.ts
+b6224d3d7ea13afb5de9e968c5628b35c08eb980a9c86e86ae14226bf2480c65 *./core/sse.ts
+faa76fdd945c36215538fcd60672fed14c2fe7b369d48eda3ada0b9ca03f2cd4 *./core/store.ts
+f2532a23c5f32cd74394332b7aa466cbce081ca8c1ed964196eea992d1150f4c *./core/tools.ts
+bc8d18a5b9e4c854df124170358813373eeab4139b21d9b01306f5fdfbf3dedb *./providers/anthropic.ts
+6bceb991f33cc6db11126bae45b6aa101f767eb543ea67e2b1be19dfe62453de *./providers/demo.ts
+3f967644791c9ea271c312e8c93e87ef6b020ebaee8fe0cba6d2a2880da5be4d *./providers/openai.ts
+d00ee1a3df280d64ec30cf610b58832099ecf5fd818195ac5111149e488028e8 *./providers/registry.ts
+bc044a96bcd4c27ac69bc01ec04890f60e2fc6650378203502f9a29e0303d826 *./providers/types.ts
+8f8dda298ce5445df1de306dec2e2b7633aebc1ff236572b9f5a379eac93cd8f *./server/__tests__/auth.test.ts
+f4b9161c80ac0b8ca69c24f3196b6f54986e0bb1ed896fb3ec0ff2f9d349bc73 *./server/__tests__/routes.test.ts
+9bdecdd8971527c4ee8a429eef2a49b803322ce5df5cb4142c9be8bce2646b24 *./server/__tests__/startup.test.ts
+5d56ac64b77f70e5494bc8eeb7aeb1e0ea169a8fc408ee895240b81c03faa3f2 *./server/__tests__/token-file.test.ts
+d82e820fae1d438c42046db946279222d82bcde998fcdebb3f3892d0295b4fc4 *./server/app.ts
+aeddbfb3aa962f1a5d5c46514e281a3ab793f600e75c87011834a8461dd010b2 *./server/auth.ts
+b495f0ba9716b1ad377d21a4d95dcea60f03e17e2acdcfb1e7b699d07e1b1284 *./server/index.ts
+bbea9c94be79ac3e86afb35b7a9f8dab36ef56611ba6e17212ef7bc9a00b6fd4 *./shared/net.ts
+0d27cfc08c2f3199f0fabc81e24f4ddf93fb8e8ee507c5428cad3e696fd953d5 *./shared/types.ts
+```

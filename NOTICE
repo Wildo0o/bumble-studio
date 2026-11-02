@@ -1,0 +1,48 @@
+AI Workstation
+Copyright 2026 The AI Workstation Authors
+
+This product includes software developed at the AI Workstation project.
+
+---
+
+Architecture and design notes
+-----------------------------
+
+The following projects informed the architecture and interaction design of
+this software. No source code was copied from them; the implementations here
+are original. They are acknowledged because ideas are worth crediting.
+
+  * Parallax (MIT License)
+    - Bridge abstraction pattern (one UI, multiple backends)
+    - Provider adapter + preset configuration structure
+    - The insight that streaming deltas must be batched before hitting the UI
+
+  * Cherry Studio (AGPL-3.0)
+    - Product-level interaction and information-architecture references only.
+      No code from this project is used, and none may be incorporated without
+      adopting the AGPL-3.0 license for the whole of this work.
+
+  * Cline (Apache-2.0)
+    - Approval-tier model for tool risk levels
+    - Checkpointing approach for workspace snapshots
+
+  * LangGraph (MIT License)
+    - Durable-execution vocabulary: interrupt, resume, checkpoint
+
+  * OpenHands (MIT License)
+    - Event-stream representation of agent activity
+
+  * Temporal (MIT License)
+    - Terminology for retries, idempotency keys and workflow versioning
+
+---
+
+Third-party dependencies
+------------------------
+
+Runtime dependencies are licensed under permissive terms (MIT, ISC,
+Apache-2.0, BSD). A full inventory can be produced with:
+
+    npx license-checker
+
+No copyleft (GPL / AGPL / LGPL) dependency is used at runtime.

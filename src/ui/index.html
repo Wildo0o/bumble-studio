@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 工作站</title>
+  <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+  <!--
+    桌面壳。
+
+    结构按「用户要处理什么」组织，而不是按后端对象组织：
+      侧栏     会话与任务
+      主区     当前会话的消息 / 活动
+      右栏     审批中心 + 待办
+      底栏     状态与错误
+
+    所有状态文字、按钮可见性都由 /ui/bootstrap 决定，
+    前端只负责渲染（见 app.js 顶部的说明）。
+  -->
+  <div id="app" class="app" data-ready="false">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark">◇</span>
+        <span class="brand-name">AI 工作站</span>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-heading">
+          <span>会话</span>
+          <button id="new-session" class="icon-btn" title="新建会话">＋</button>
+        </div>
+        <ul id="session-list" class="list"></ul>
+        <p id="session-empty" class="empty">还没有会话</p>
+      </div>
+
+      <div class="sidebar-section sidebar-section--grow">
+        <div class="sidebar-heading"><span>待办</span><span id="inbox-count" class="badge">0</span></div>
+        <ul id="inbox-list" class="list list--inbox"></ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <span id="build-info" class="muted">连接中…</span>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <div>
+          <h1 id="session-title">未选择会话</h1>
+          <div id="session-status" class="status"></div>
+        </div>
+        <div class="main-actions">
+          <span id="activity-toggle" class="pill" title="显示后端事件摘要">活动</span>
+        </div>
+      </header>
+
+      <section id="messages" class="messages" aria-live="polite">
+        <p class="empty">选择一个会话开始</p>
+      </section>
+
+      <section id="activity" class="activity hidden">
+        <div class="activity-head">后端事件（原样展示）</div>
+        <ul id="activity-list" class="list"></ul>
+      </section>
+
+      <form id="compose" class="compose">
+        <textarea id="compose-input" placeholder="输入目标或补充说明…" rows="2"></textarea>
+        <button type="submit" class="primary">发送</button>
+      </form>
+    </main>
+
+    <aside class="panel">
+      <div class="panel-head">
+        <h2>审批中心</h2>
+        <button id="refresh" class="icon-btn" title="刷新">⟳</button>
+      </div>
+      <ul id="approval-list" class="list list--approvals"></ul>
+      <p id="approval-empty" class="empty">没有待审批事项</p>
+
+      <div class="panel-head"><h2>设置</h2></div>
+      <form id="policy-form" class="settings">
+        <label>连续失败停止次数
+          <input id="policy-failures" type="number" min="1" step="1">
+        </label>
+        <label>单次运行最长（分钟）
+          <input id="policy-duration" type="number" min="1" step="1">
+        </label>
+        <p class="muted small">
+          无人值守不会自动批准任何审批（后端固定拒绝 autoApprove）。
+        </p>
+        <button type="submit" class="primary">保存策略</button>
+      </form>
+    </aside>
+
+    <footer class="statusbar">
+      <span id="status-text" class="muted">就绪</span>
+      <span id="status-error" class="error hidden"></span>
+    </footer>
+  </div>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
